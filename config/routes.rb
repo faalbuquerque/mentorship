@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
   mount Sidekiq::Web => "/sidekiq"
 
-  resources :mentors, only: [:new, :index, :edit, :create, :show]
+  resources :mentors, only: [:new, :index, :edit, :create, :show, :update]
 end

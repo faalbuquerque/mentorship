@@ -4,6 +4,7 @@
     <p>Name: <%= mentor.name %></p>
     <p>Email: <%= mentor.email %></p>
     <p>Bio: <%= mentor.bio %></p>
+    <%= link_to "edit", edit_mentor_path(mentor.id)  %>
     <br/>
     <hr>
   <% end %>

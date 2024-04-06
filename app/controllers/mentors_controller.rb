@@ -20,9 +20,19 @@ class MentorsController < ApplicationController
     @mentor = Mentor.new(mentors_params)
 
     if @mentor.save
-      render json: @mentor, status: :created
+      redirect_to @mentor
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @mentor = Mentor.find(params[:id])
+
+    if @mentor.update(mentors_params)
+      redirect_to @mentor
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
