@@ -2,7 +2,9 @@ class MentorsController < ApplicationController
   def new
     @mentor = Mentor.new
   end
-
+  def show
+    @mentor = Mentor.find(params[:id])
+  end
   def create
     @mentor = Mentor.new(mentors_params)
 
