@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_23_030805) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_192048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_23_030805) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mentor_skills", force: :cascade do |t|
+    t.bigint "mentor_id"
+    t.bigint "skill_id"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mentor_id"], name: "index_mentor_skills_on_mentor_id"
+    t.index ["skill_id", "mentor_id"], name: "index_mentor_skills_on_skill_id_and_mentor_id", unique: true
+    t.index ["skill_id"], name: "index_mentor_skills_on_skill_id"
+  end
+
   create_table "mentors", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -31,4 +42,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_23_030805) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "mentor_skills", "mentors"
+  add_foreign_key "mentor_skills", "skills"
 end
