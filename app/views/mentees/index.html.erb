@@ -1,0 +1,15 @@
+<h1>Mentees</h1>
+
+<ul>
+  <% @mentees.each do |mentee| %>
+    <%= link_to mentee_path(mentee) do %>
+      <li>
+        <%= mentee.name %>
+        <%= mentee.bio %>
+        <%= mentee.email %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New", new_mentee_path(@mentee) %>

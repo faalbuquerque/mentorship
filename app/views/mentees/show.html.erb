@@ -1,0 +1,14 @@
+<h1><%= @mentee.name %></h1>
+
+<p><%= @mentee.email %></p>
+<p><%= @mentee.bio %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_mentee_path(@mentee) %></li>
+  <li><%= link_to "Destroy", mentee_path(@mentee), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "Home", mentees_path %>
