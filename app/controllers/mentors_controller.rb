@@ -36,6 +36,12 @@ class MentorsController < ApplicationController
     end
   end
 
+  def destroy
+    @mentor = Mentor.find(params[:id])
+
+    redirect_to mentors_path if @mentor.destroy
+  end
+
   private
 
   def mentors_params

@@ -5,6 +5,8 @@
     <p>Email: <%= mentor.email %></p>
     <p>Bio: <%= mentor.bio %></p>
     <%= link_to "edit", edit_mentor_path(mentor.id)  %>
+    <%= link_to "delete", mentor_path(mentor.id), data: { "turbo-method": :delete } %>
+
     <br/>
     <hr>
   <% end %>
