@@ -1,10 +1,21 @@
 class MentorsController < ApplicationController
+
   def new
     @mentor = Mentor.new
   end
+
+  def index
+    @mentors = Mentor.all
+  end
+
+  def edit
+    @mentor = Mentor.find(params[:id])
+  end
+
   def show
     @mentor = Mentor.find(params[:id])
   end
+
   def create
     @mentor = Mentor.new(mentors_params)
 
