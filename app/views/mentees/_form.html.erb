@@ -2,11 +2,17 @@
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <% @mentee.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :email %><br>
     <%= form.text_field :email %>
+    <% @mentee.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
