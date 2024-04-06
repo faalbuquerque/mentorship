@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
   mount Sidekiq::Web => "/sidekiq"
 
+  resources :skills
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
