@@ -15,6 +15,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
+gem "rails-controller-testing"
 
 gem "redis", "~> 5.1"
 gem "sidekiq", "~> 7.2"
@@ -55,4 +56,5 @@ group :test do
   gem "rspec-rails", "6.1.0"
   gem "shoulda-matchers"
   gem "rspec-sidekiq", "~> 4.1"
+  gem "simplecov", require: false
 end
