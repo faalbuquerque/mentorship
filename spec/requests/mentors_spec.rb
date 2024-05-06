@@ -19,4 +19,30 @@ RSpec.describe "Mentors", type: :request do
       expect(response.body).to include("Não temos mentores cadastrados!")
     end
   end
+
+  describe "GET /new" do
+    it "returns a 200 status" do
+      get new_mentor_path
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders the new mentor template" do
+      get new_mentor_path
+      expect(response).to render_template('new')
+    end
+  end
+
+  describe "POST /create" do
+    it "creates a new mentor" do
+      expect {
+        post mentors_path, params: { mentor: { name: "John Doe", email: "john@example.com", url: "http://example.com", bio: "Bio example" } }
+      }.to change(Mentor, :count).by(1)
+    end
+
+    it "redirects to the mentor show page" do
+      post mentors_path, params: { mentor: { name: "John Doe", email: "john@example.com", url: "http://example.com", bio: "Bio example" } }
+      mentor = Mentor.last
+      expect(response).to redirect_to(mentor_path(mentor))
+    end
+  end
 end
