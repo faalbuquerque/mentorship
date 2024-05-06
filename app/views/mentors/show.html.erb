@@ -1,0 +1,10 @@
+<h1><%= @mentor.name %></h1>
+
+<p>Email: <%= @mentor.email %></p>
+<p>URL: <%= @mentor.url %></p>
+<p>Biografia: <%= @mentor.bio %></p>
+
+<p>
+  <%= link_to 'Editar', edit_mentor_path(@mentor), class: 'btn btn-primary' %> |
+  <%= link_to 'Voltar', mentors_path, class: 'btn btn-secondary' %>
+</p>
