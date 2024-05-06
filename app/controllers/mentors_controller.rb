@@ -3,8 +3,12 @@ class MentorsController < ApplicationController
     @mentors = Mentor.all
   end
 
+  def new
+    @mentor = Mentor.new
+  end
+
   def create
-    @mentor = Mentor.new(params[:mentor])
+    @mentor = Mentor.new(mentor_params)
 
     @mentor.save
     redirect_to @mentor
@@ -12,5 +16,11 @@ class MentorsController < ApplicationController
 
   def show
     @mentor = Mentor.find(params[:id])
+  end
+
+  private
+
+  def mentor_params
+    params.require(:mentor).permit(:name, :email, :phone, :address)
   end
 end
