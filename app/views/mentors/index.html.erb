@@ -1,0 +1,22 @@
+<h1>Lista de mentores!</h1>
+
+<table>
+  <% if @mentors.size > 0 %>
+    <tr>
+    <th>Nome</th>
+    <th>Bio</th>
+  </tr>
+  <%@mentors.map do |mentor|%>
+  <tr>
+    <td><%=mentor.name%></td>
+    <td><%=mentor.bio%></td>
+  <%end%>
+  <% else %>
+    <tr>
+      <td>Não temos mentores cadastrados!</td>
+    </tr>
+  <%end%>
+  <%%>
+</tr>
+
+</table>
