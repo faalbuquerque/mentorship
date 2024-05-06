@@ -1,0 +1,27 @@
+<h1>Novo Mentor</h1>
+
+<%= form_with(model: @mentor, local: true) do |form| %>
+ <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :mentor_name %>
+ </div>
+
+ <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, id: :mentor_email %>
+ </div>
+
+ <div class="field">
+    <%= form.label :url %>
+    <%= form.url_field :url, id: :mentor_url %>
+ </div>
+
+ <div class="field">
+    <%= form.label :bio %>
+    <%= form.text_area :bio, id: :mentor_bio %>
+ </div>
+
+ <div class="actions">
+    <%= form.submit %>
+ </div>
+<% end %>
